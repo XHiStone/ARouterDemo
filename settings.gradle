@@ -1,0 +1,8 @@
+include ':module1'
+include ':module2'
+include ':module3'
+include ':resources'
+include ':ARouter'
+include ':common'
+include ':app'
+rootProject.name = "ARouterDemo"
