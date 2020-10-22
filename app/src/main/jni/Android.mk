@@ -18,6 +18,10 @@ LOCAL_SRC_FILES := com_xhiston_arouterdemo_DiffUpdateUtil.h\
 					bzip2/decompress.c\
 					bzip2/dlltest.c\
 					bzip2/huffman.c\
+					bzip2/mk251.c\
+					bzip2/randtable.c\
+					bzip2/spewG.c\
+					unzcrash.c
 
 
 
