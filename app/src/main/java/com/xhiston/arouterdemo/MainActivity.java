@@ -27,12 +27,13 @@ public class MainActivity extends BaseActivity implements MainView {
     private String oldApk = newPath + File.separator + "base.apk";
 
     private void dspatch() {
-
-        File file = new File(patch);
-        if (file.exists()) {
-            int dif = DiffUpdateUtil.diff(getApplicationInfo().sourceDir, newApk, patch);
-            Log.e("tag", "组合Apk中 dif=" + dif);
-        }
+        if (!new File(path).exists())new File(path).mkdirs();
+        if (!new File(newPath).exists())new File(newPath).mkdirs();
+//        File file = new File(patch);
+//        if (file.exists()) {
+//            int dif = DiffUpdateUtil.diff(getApplicationInfo().sourceDir, newApk, patch);
+//            Log.e("tag", "组合Apk中 dif=" + dif);
+//        }
     }
 
     protected boolean checkPermissions(String[] permissions) {
