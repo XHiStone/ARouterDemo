@@ -56,7 +56,7 @@ typedef unsigned short UInt16;
 
 #ifndef BZ_NO_STDIO
 
-void BZ2_bz__AssertH__fail(int errcode);
+ void BZ2_bz__AssertH__fail(int errcode);
 
 #define AssertH(cond, errcode) \
    { if (!(cond)) BZ2_bz__AssertH__fail ( errcode ); }

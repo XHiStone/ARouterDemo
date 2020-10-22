@@ -60,7 +60,7 @@ static off_t offtin(u_char *buf) {
     return y;
 }
 
-int executePatch(int argc, char *argv[]) {
+int mybspatch(int argc, char *argv[]) {
     FILE *f, *cpf, *dpf, *epf;
     BZFILE *cpfbz2, *dpfbz2, *epfbz2;
     int cbz2err, dbz2err, ebz2err;

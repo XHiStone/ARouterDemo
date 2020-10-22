@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity implements MainView {
         String newApk = path + File.separator + "new.apk";
         File file = new File(patch);
         if (file.exists()) {
-            int dif = DiffUpdateUtil.patch(getApplicationInfo().sourceDir, newApk, patch);
+            int dif = DiffUpdateUtil.patch(path+File.separator + "base.apk", newApk, patch);
             Log.e("tag", "组合Apk中 dif=" + dif);
         }
     }
