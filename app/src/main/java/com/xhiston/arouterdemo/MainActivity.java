@@ -21,13 +21,16 @@ import java.io.File;
 @Route(path = ARouterConstants.APP_MAIN_ACTIVITY)
 public class MainActivity extends BaseActivity implements MainView {
     private String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "差分包";
+    private String newPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "差分新包";
+    private String patch = path + File.separator + "patch.patch";
+    private String newApk = newPath + File.separator + "new.apk";
+    private String oldApk = newPath + File.separator + "base.apk";
 
     private void dspatch() {
-        String patch = path + File.separator + "patch.patch";
-        String newApk = path + File.separator + "new.apk";
+
         File file = new File(patch);
         if (file.exists()) {
-            int dif = DiffUpdateUtil.patch(path+File.separator + "base.apk", newApk, patch);
+            int dif = DiffUpdateUtil.diff(getApplicationInfo().sourceDir, newApk, patch);
             Log.e("tag", "组合Apk中 dif=" + dif);
         }
     }
@@ -65,7 +68,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     .Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     android.Manifest.permission.READ_EXTERNAL_STORAGE}, 10001);
         } else {
-            dspatch();
+//            dspatch();
         }
 
 //        Log.e("tag", "Environment.getExternalStorageDirectory().path=" + file.getAbsolutePath()+file.exists());
@@ -77,12 +80,31 @@ public class MainActivity extends BaseActivity implements MainView {
         if (grantResults.length == 0 || PackageManager.PERMISSION_GRANTED != grantResults[0]) {
 
         } else {
-            if (new File(path).exists()) dspatch();
+//            if (new File(path).exists()) dspatch();
         }
     }
 
     @Override
     public void intentView() {
         startActivity(new Intent(this, MainActivity2.class));
+    }
+
+    @Override
+    public void diffpatch() {
+
+        File file = new File(newApk);
+        if (file.exists()) {
+            int dif = DiffUpdateUtil.diff(oldApk, newApk, patch);
+            Log.e("tag", "打Apk差分包 dif=" + dif);
+        }
+    }
+
+    @Override
+    public void addpatch() {
+        File file = new File(patch);
+        if (file.exists()) {
+            int dif = DiffUpdateUtil.patch(oldApk, newApk, patch);
+            Log.e("tag", "组合Apk中 dif=" + dif);
+        }
     }
 }

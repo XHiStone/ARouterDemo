@@ -9,6 +9,7 @@ LOCAL_MODULE    := diffupdate
 LOCAL_SRC_FILES := com_xhiston_arouterdemo_DiffUpdateUtil.h\
 					com_xhiston_arouterdemo_DiffUpdateUtil.c\
 						bspatch.c\
+						bsdiff.c\
                         bzip2/blocksort.c\
                         bzip2/bzip2.c\
                         bzip2/bzip2recover.c\
@@ -18,12 +19,8 @@ LOCAL_SRC_FILES := com_xhiston_arouterdemo_DiffUpdateUtil.h\
                         bzip2/compress.c\
                         bzip2/crctable.c\
                         bzip2/decompress.c\
-                        bzip2/dlltest.c\
                         bzip2/huffman.c\
-                        bzip2/mk251.c\
                         bzip2/randtable.c\
-                        bzip2/spewG.c\
-                        bzip2/unzcrash.c
 
 
 

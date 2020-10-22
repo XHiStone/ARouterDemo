@@ -5,6 +5,7 @@ import android.view.View;
 import com.xhiston.arouter.ARouterConstants;
 import com.xhiston.arouter.ARouterUtil;
 
+
 /**
  * Created by xie on 2020/10/16.
  */
@@ -20,7 +21,18 @@ public class MainViewModel {
     }
 
     public void onViewClick(View v) {
-        view.intentView();
-//        ARouterUtil.getInstance().startActivity(ARouterConstants.MODULE3_MAIN_ACTIVITY);
+        switch (v.getId()) {
+            case R.id.btn_diff:
+                view.diffpatch();
+                break;
+            case R.id.btn_add:
+                view.addpatch();
+                break;
+            case R.id.tv_content:
+//                view.intentView();
+                ARouterUtil.getInstance().startActivity(ARouterConstants.MODULE3_MAIN_ACTIVITY);
+                break;
+        }
+
     }
 }

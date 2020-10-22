@@ -10,4 +10,6 @@ public class DiffUpdateUtil {
     }
 
     public static native int patch(String oldApk, String newApk, String patch);
+
+    public static native int diff(String oldApk,String newApk,String patch);
 }
